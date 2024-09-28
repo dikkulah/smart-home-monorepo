@@ -1,0 +1,18 @@
+spring:
+  application:
+    name: sh-auth-service
+  security:
+    oauth2:
+      client:
+        registration:
+          keycloak:
+            client-id: auth-service
+            client-secret: Hphzo2yBYV4soRcVxj4fR58sILKYdbk5
+            scope: openid, profile, email
+            authorization-grant-type: authorization_code
+            redirect-uri: "{baseUrl}/login/oauth2/code/{registrationId}"
+        provider:
+          keycloak:
+            issuer-uri: http://localhost:8080/realms/your-realm
+
+

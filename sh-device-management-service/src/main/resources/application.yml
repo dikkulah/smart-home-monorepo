@@ -1,0 +1,18 @@
+server:
+  port: 8081
+spring:
+  application:
+    name: sh-device-management-service
+  datasource:
+    url: jdbc:mysql://localhost:3306/devicedb
+    username: dbuser
+    password: dbpassword
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka
