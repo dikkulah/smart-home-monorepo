@@ -1,9 +1,9 @@
 package org.dikkulah.sh.device.management.service.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
+import org.dikkulah.sh.device.management.service.model.enums.DeviceCategory;
+import org.dikkulah.sh.device.management.service.model.enums.DeviceStatus;
+import org.dikkulah.sh.device.management.service.model.enums.DeviceType;
 
 @Entity
 public class Device {
@@ -15,6 +15,9 @@ public class Device {
     private DeviceCategory category;
     private DeviceType type;
     private DeviceStatus status;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    private Domain domain;
 
     public Long getId() {
         return id;
@@ -54,5 +57,13 @@ public class Device {
 
     public void setStatus(DeviceStatus status) {
         this.status = status;
+    }
+
+    public Domain getDomain() {
+        return domain;
+    }
+
+    public void setDomain(Domain domain) {
+        this.domain = domain;
     }
 }
